@@ -371,3 +371,54 @@ li {
   background: #ffffff;
 background: linear-gradient(45deg,rgba(255, 255, 255, 0) 70%, rgba(146, 162, 120, 1) 78%, rgba(146, 162, 120, 1) 100%);
 }
+
+/* === CONTACT === */
+
+.contact-wrapper {
+  background-color: var(--seafoam);
+  color: var(--primary-util);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--app-height);
+  margin-left: 30px;
+  padding: 0px 10px 0px 30px;
+  width: calc(100vW * 6 / 7 - 100px);
+}
+
+form {
+  border: 2px solid var(--primary-util);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 20px;
+  height: 500px;
+  margin-right: 100px;
+  padding: 20px;
+  width: 500px;
+}
+
+input {
+  background-color: var(--seafoam);
+  border: none;
+}
+
+
+input::placeholder {
+  color: var(--primary-util);
+  font-family: "degular-variable",sans-serif;
+  font-variation-settings: 'ital' 0, 'opsz' 6, 'wght' 200;
+  font-size: 20px;
+}
+
+textarea {
+  background-color: var(--seafoam);
+  border: none;
+}
+
+textarea::placeholder {
+  color: var(--primary-util);
+  font-family: "degular-variable",sans-serif;
+  font-variation-settings: 'ital' 0, 'opsz' 6, 'wght' 200;
+  font-size: 20px;
+}
