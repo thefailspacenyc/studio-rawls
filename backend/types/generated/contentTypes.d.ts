@@ -434,6 +434,7 @@ export interface ApiCollaboratorCollaborator
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'Name'>;
     Social_Link: Schema.Attribute.Component<'contact-info.social-info', true>;
+    studies: Schema.Attribute.Relation<'manyToMany', 'api::study.study'>;
     tags: Schema.Attribute.Relation<'oneToMany', 'api::tag.tag'>;
     Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -533,6 +534,44 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     >;
     Project_Title: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiStudyStudy extends Struct.CollectionTypeSchema {
+  collectionName: 'studies';
+  info: {
+    displayName: 'Study';
+    pluralName: 'studies';
+    singularName: 'study';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    collaborators: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::collaborator.collaborator'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::study.study'> &
+      Schema.Attribute.Private;
+    Media: Schema.Attribute.DynamicZone<
+      [
+        'media.image',
+        'media.values',
+        'media.image-gallery',
+        'media.video',
+        'media.press-quote',
+      ]
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1086,6 +1125,7 @@ declare module '@strapi/strapi' {
       'api::event.event': ApiEventEvent;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
       'api::project.project': ApiProjectProject;
+      'api::study.study': ApiStudyStudy;
       'api::tag.tag': ApiTagTag;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

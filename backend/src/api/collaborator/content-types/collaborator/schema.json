@@ -52,6 +52,12 @@
     "slug": {
       "type": "uid",
       "targetField": "Name"
+    },
+    "studies": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::study.study",
+      "mappedBy": "collaborators"
     }
   }
 }

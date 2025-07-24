@@ -10,6 +10,7 @@ import CollaboratorView from '../pages/CollaboratorView';
 import CollaboratorList from '../pages/CollaboratorList';
 import EventList from '../pages/EventList';
 import Contact from '../pages/Contact';
+import Research from '../pages/Research';
 
 // import useFetch from "../useFetch"
 
@@ -54,7 +55,7 @@ import Contact from '../pages/Contact';
                                     <Link to="https://whistlespace.org" target='_blank'>
                                         <h6>Whistelspace</h6>
                                     </Link>
-                                    <Link to={ "/" }>
+                                    <Link to={ "/research" }>
                                         <h6>Research</h6>
                                     </Link>
                                     <Link to={ "/" }>
@@ -101,6 +102,7 @@ import Contact from '../pages/Contact';
                         <Route path="/collaborators/:id" element={<CollaboratorView />} />
                         <Route path="/collaborators" element={<CollaboratorList />} />
                         <Route path="/events" element={<EventList />} />
+                        <Route path="/research" element={<Research />} />
                         <Route path="/contact" element={<Contact />} />
                     </Routes>
                 </Router>

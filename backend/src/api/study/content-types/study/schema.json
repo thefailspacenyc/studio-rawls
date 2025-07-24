@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "studies",
+  "info": {
+    "singularName": "study",
+    "pluralName": "studies",
+    "displayName": "Study"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "collaborators": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::collaborator.collaborator",
+      "inversedBy": "studies"
+    },
+    "Media": {
+      "type": "dynamiczone",
+      "components": [
+        "media.image",
+        "media.values",
+        "media.image-gallery",
+        "media.video",
+        "media.press-quote"
+      ]
+    }
+  }
+}

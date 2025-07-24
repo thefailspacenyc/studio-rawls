@@ -1,17 +1,14 @@
 {
   "collectionName": "components_media_values",
   "info": {
-    "displayName": "Values",
+    "displayName": "Rich_Text",
     "icon": "bulletList",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "Entry": {
-      "displayName": "Entry",
-      "type": "component",
-      "repeatable": true,
-      "component": "media.entry"
+    "Rich_Text": {
+      "type": "blocks"
     }
   }
 }
