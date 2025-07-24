@@ -9,6 +9,7 @@ import Landing from '../pages/Landing';
 import CollaboratorView from '../pages/CollaboratorView';
 import CollaboratorList from '../pages/CollaboratorList';
 import EventList from '../pages/EventList';
+import Contact from '../pages/Contact';
 
 // import useFetch from "../useFetch"
 
@@ -50,7 +51,7 @@ import EventList from '../pages/EventList';
                                     <Link to={ "/events" }>
                                         <h6>Events</h6>
                                     </Link>
-                                    <Link to={ "/" }>
+                                    <Link to="https://whistlespace.org" target='_blank'>
                                         <h6>Whistelspace</h6>
                                     </Link>
                                     <Link to={ "/" }>
@@ -59,10 +60,10 @@ import EventList from '../pages/EventList';
                                     <Link to={ "/" }>
                                         <h6>Productions</h6>
                                     </Link>
-                                    <Link to={ "/" }>
+                                    <Link to={ "/collaborators" }>
                                         <h6>Collaborators</h6>
                                     </Link>
-                                    <Link to={ "/" }>
+                                    <Link to={ "/contact" }>
                                         <h6>Contact</h6>
                                     </Link>
                                 </div>
@@ -100,6 +101,7 @@ import EventList from '../pages/EventList';
                         <Route path="/collaborators/:id" element={<CollaboratorView />} />
                         <Route path="/collaborators" element={<CollaboratorList />} />
                         <Route path="/events" element={<EventList />} />
+                        <Route path="/contact" element={<Contact />} />
                     </Routes>
                 </Router>
             );
