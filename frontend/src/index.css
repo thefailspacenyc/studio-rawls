@@ -317,6 +317,23 @@ li {
 
 /*** === COLLABORATOR VIEW ==== */
 
+.container {
+  position: relative;
+  height: 200px;
+  background-color: #f4f4f4;
+  margin-top: 1000px; /* Place container midway down */
+}
+
+.bottom-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100px;
+  background-color: black;
+  transition: width 0.1s linear;
+}
+
 .collaborator-wrapper {
   box-sizing: border-box;
   height: var(--app-height);
