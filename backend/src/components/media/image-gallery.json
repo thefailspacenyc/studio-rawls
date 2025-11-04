@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_media_image_galleries",
+  "info": {
+    "displayName": "Image Gallery"
+  },
+  "options": {},
+  "attributes": {
+    "Gallery": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

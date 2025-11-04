@@ -2,7 +2,6 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 
     function Image(props) {
 
-        console.log(props)
         let image = props.data.Image
 
         return (

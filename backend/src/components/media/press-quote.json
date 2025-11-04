@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_media_press_quotes",
+  "info": {
+    "displayName": "Press Quote"
+  },
+  "options": {},
+  "attributes": {
+    "Press_Quote": {
+      "type": "text"
+    }
+  }
+}

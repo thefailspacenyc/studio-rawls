@@ -2,14 +2,12 @@
   "collectionName": "components_media_entries",
   "info": {
     "displayName": "Entry",
-    "icon": "bulletList"
+    "icon": "bulletList",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "Value": {
-      "type": "string"
-    },
-    "Description": {
+    "Text": {
       "type": "blocks"
     }
   }

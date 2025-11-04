@@ -24,7 +24,8 @@ p {
 
 h1 {
   font-family: "degular-variable",sans-serif;
-  font-weight: 800;
+  font-weight: 600;
+  font-size: 3em;
 }
 
 h2 {
@@ -38,6 +39,12 @@ h3 {
 
 h6 {
   font-family: "degular-variable",sans-serif;
+}
+
+p {
+  font-size: 1.25em;
+  text-justify: inter-word;
+  text-align: justify;
 }
 
 li {
@@ -87,6 +94,18 @@ li {
 
 /* === FAILSPACE CSS === */
  
+.absolute {
+  position: absolute;
+}
+
+.left-0 {
+  left: 100px;
+}
+
+.relative {
+  position: relative;
+}
+
 .flex {
   display: flex;
 }
@@ -103,12 +122,20 @@ li {
   justify-content: center;
 }
 
+.jc-space-btwn {
+  justify-content: space-between;
+}
+
 .ai-flex-end {
   align-items: flex-end;
 }
 
 .ac-flex-end {
   align-content: flex-end;
+}
+
+.ai-flex-center {
+  align-items: center;
 }
 
 .column {
@@ -131,6 +158,10 @@ li {
   width: 50%;
 }
 
+.width-60 {
+  width: 60%;
+}
+
 .width-50 > h2 {
   margin-bottom: 0;
 }
@@ -146,6 +177,10 @@ li {
 .bg-black {
   background-color: var(--vampire);
   color: var(--primary-util);
+}
+
+.bg-secondary-util {
+  background-color: var(--secondary-util);
 }
 
 .layout-grid {
@@ -204,6 +239,10 @@ li {
   margin-left: 20px;
   padding: 10px 10px 10px 30px;
   width: calc(100vW * 6 / 7 );
+}
+
+.min-section-height {
+  min-height: 100vH;
 }
 
 .section-image {
@@ -268,7 +307,32 @@ li {
   transition-duration: 300ms;
 }
 
+/* === LANDING === */
+
+.featured-project-info {
+  box-sizing: border-box;
+  padding-right: 20px;
+}
+
+
 /*** === COLLABORATOR VIEW ==== */
+
+.container {
+  position: relative;
+  height: 200px;
+  background-color: #f4f4f4;
+  margin-top: 1000px; /* Place container midway down */
+}
+
+.bottom-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100px;
+  background-color: black;
+  transition: width 0.1s linear;
+}
 
 .collaborator-wrapper {
   box-sizing: border-box;

@@ -6,7 +6,7 @@ import { BrowserRouter as Router,
 
 /* === COMPONENTS === */
 import useFetch from "../useFetch";
-import Values from '../components/Values';
+import Values from '../components/RichText';
 import Image from '../components/Image';
 
     function Contact() {

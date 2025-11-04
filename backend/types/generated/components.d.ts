@@ -17,23 +17,27 @@ export interface ContactInfoSocialInfo extends Struct.ComponentSchema {
 export interface MediaEntry extends Struct.ComponentSchema {
   collectionName: 'components_media_entries';
   info: {
+    description: '';
     displayName: 'Entry';
     icon: 'bulletList';
   };
   attributes: {
-    Description: Schema.Attribute.Blocks;
-    Value: Schema.Attribute.String;
+    Text: Schema.Attribute.Blocks;
   };
 }
 
 export interface MediaFeaturedProject extends Struct.ComponentSchema {
   collectionName: 'components_media_featured_projects';
   info: {
+    description: '';
     displayName: 'Featured Project';
     icon: 'archive';
   };
   attributes: {
     Project_Description: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    Project_Image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     Project_Title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -50,15 +54,48 @@ export interface MediaImage extends Struct.ComponentSchema {
   };
 }
 
+export interface MediaImageGallery extends Struct.ComponentSchema {
+  collectionName: 'components_media_image_galleries';
+  info: {
+    displayName: 'Image Gallery';
+  };
+  attributes: {
+    Gallery: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+  };
+}
+
+export interface MediaPressQuote extends Struct.ComponentSchema {
+  collectionName: 'components_media_press_quotes';
+  info: {
+    displayName: 'Press Quote';
+  };
+  attributes: {
+    Press_Quote: Schema.Attribute.Text;
+  };
+}
+
 export interface MediaValues extends Struct.ComponentSchema {
   collectionName: 'components_media_values';
   info: {
     description: '';
-    displayName: 'Values';
+    displayName: 'Rich_Text';
     icon: 'bulletList';
   };
   attributes: {
-    Entry: Schema.Attribute.Component<'media.entry', true>;
+    Rich_Text: Schema.Attribute.Blocks;
+  };
+}
+
+export interface MediaVideo extends Struct.ComponentSchema {
+  collectionName: 'components_media_videos';
+  info: {
+    displayName: 'Video';
+  };
+  attributes: {
+    Video: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -69,7 +106,10 @@ declare module '@strapi/strapi' {
       'media.entry': MediaEntry;
       'media.featured-project': MediaFeaturedProject;
       'media.image': MediaImage;
+      'media.image-gallery': MediaImageGallery;
+      'media.press-quote': MediaPressQuote;
       'media.values': MediaValues;
+      'media.video': MediaVideo;
     }
   }
 }
