@@ -20,11 +20,12 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 
             return (
                 <div className="flex column-gap-10">
-                    {tags.map((tag, index) => 
+                    {tags 
+                        ? tags.map((tag, index) => 
                         <div key={ index } className="tag">
                             <p>{ tag.Tag }</p>
                         </div>
-                    )}
+                    ) : null }
                 </div>
             );
         }

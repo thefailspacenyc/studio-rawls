@@ -25,6 +25,7 @@ import FeaturedProject from '../components/FeaturedProject';
             mission = data.data.Mission
 
             console.log(data)
+            
             for (let i = 0; i < sections.length; i ++) {
                 if (sections[i].__component === "media.values") {
                     display.push(<RichText data={sections[i]} />)

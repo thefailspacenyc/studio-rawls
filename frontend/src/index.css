@@ -154,6 +154,10 @@ li {
   row-gap: 50px;
 }
 
+.width-40 {
+  width: 40%;
+}
+
 .width-50 {
   width: 50%;
 }
@@ -184,7 +188,10 @@ li {
 }
 
 .layout-grid {
-  display: grid;
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(224px, 1fr));
+  column-gap: 10px;
+  padding: 0px 10px;
 }
 
 .rows-three {
@@ -343,7 +350,8 @@ li {
 }
 
 .collaborator-info {
-  padding: 0px 0px 0px 10px;
+  justify-content: center;
+  padding: 0px 10px 0px 10px;
 }
 
 .profile-picture {
@@ -375,6 +383,7 @@ li {
   border-left: 1px solid var(--seafoam);
   border-right: 1px solid var(--seafoam);
   padding-top: 30px;
+  max-width: 224px;
 }
 
 .profile-picture-small {
