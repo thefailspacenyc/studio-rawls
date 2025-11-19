@@ -23,29 +23,36 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer';
             collaborator = data.data[0]
             projects = collaborator.projects
             tags = collaborator.tags
-            console.log(projects)
+            console.log(collaborator)
 
             return (
                 <div className="page-wrapper flex column ai-flex-end">
                     <div className="collaborator-wrapper flex jc-flex-end">
-                        <img className="profile-picture" src={`${process.env.REACT_APP_BACKEND}${ collaborator.Profile_Picture.url }`} />
+                        <img className="profile-picture" src={`${ collaborator.Profile_Picture.url }`} />
                         <div className="collaborator-info width-50 flex column">
                             <h1>{ collaborator.Name }</h1>
                             <h3>{ collaborator.Title }</h3>
-                            {tags.map((tag, index) => 
-                                <div key={ index }>
-                                    <div className="tag">
-                                        <p>{ tag.Tag }</p>
+                            {tags
+                                ? collaborator.tags.map((tag, index) => (
+                                    <div className="tag" key={index}>
+                                        <p>{tag.Tag}</p>
                                     </div>
-                                </div>
-                            )}
-                            <BlocksRenderer content={ collaborator.Bio } />
+                                    ))
+                                : null 
+                            }
+                            {collaborator.Bio 
+                              ? <BlocksRenderer content={ collaborator.Bio } />
+                              : null
+                            }
                             <h2>Current Projects</h2>
-                            {projects.map((project, index) => 
+                            {projects
+                                ? projects.map((project, index) => (
                                 <div lassName="tag" key={ index }>
                                     <p>{ project.Project_Title }</p>
                                 </div>
-                            )}
+                                ))
+                                : null
+                            }
                         </div>
                     </div>
                 </div>

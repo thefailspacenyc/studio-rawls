@@ -511,6 +511,7 @@ export interface ApiLandingPageLandingPage extends Struct.SingleTypeSchema {
 export interface ApiProjectProject extends Struct.CollectionTypeSchema {
   collectionName: 'projects';
   info: {
+    description: '';
     displayName: 'Project';
     pluralName: 'projects';
     singularName: 'project';
@@ -531,6 +532,15 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     project: Schema.Attribute.Relation<
       'manyToOne',
       'api::collaborator.collaborator'
+    >;
+    Project_Media: Schema.Attribute.DynamicZone<
+      [
+        'media.video',
+        'media.values',
+        'media.press-quote',
+        'media.image',
+        'media.image-gallery',
+      ]
     >;
     Project_Title: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;

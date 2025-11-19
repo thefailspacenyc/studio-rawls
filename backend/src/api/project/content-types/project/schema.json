@@ -4,7 +4,8 @@
   "info": {
     "singularName": "project",
     "pluralName": "projects",
-    "displayName": "Project"
+    "displayName": "Project",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,6 +19,16 @@
       "relation": "manyToOne",
       "target": "api::collaborator.collaborator",
       "inversedBy": "projects"
+    },
+    "Project_Media": {
+      "type": "dynamiczone",
+      "components": [
+        "media.video",
+        "media.values",
+        "media.press-quote",
+        "media.image",
+        "media.image-gallery"
+      ]
     }
   }
 }
