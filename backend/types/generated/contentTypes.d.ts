@@ -529,10 +529,13 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
       'api::project.project'
     > &
       Schema.Attribute.Private;
+    Location: Schema.Attribute.String;
+    Premiere_Date: Schema.Attribute.String;
     project: Schema.Attribute.Relation<
       'manyToOne',
       'api::collaborator.collaborator'
     >;
+    Project_Description: Schema.Attribute.Blocks;
     Project_Media: Schema.Attribute.DynamicZone<
       [
         'media.video',

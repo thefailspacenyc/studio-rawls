@@ -29,6 +29,15 @@
         "media.image",
         "media.image-gallery"
       ]
+    },
+    "Premiere_Date": {
+      "type": "string"
+    },
+    "Location": {
+      "type": "string"
+    },
+    "Project_Description": {
+      "type": "blocks"
     }
   }
 }
