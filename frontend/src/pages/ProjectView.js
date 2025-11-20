@@ -43,8 +43,8 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 
             return (
                 <div className="page-wrapper flex column ai-flex-end">
-                    <div className="collaborator-wrapper flex jc-flex-end">
-                        <div className='flex column width-50'>
+                    <div className="project-wrapper flex jc-flex-end">
+                        <div className='flex column width-50 row-gap-50'>
                         {display.map((section, index) => 
                             <div key={ index }>
                                 { section }

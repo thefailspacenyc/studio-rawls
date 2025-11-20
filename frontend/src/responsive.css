@@ -53,9 +53,9 @@
     position: absolute;
     top: 20px;
 }
+
 .mobile-column-dropdown {
     box-sizing: border-box;
-    padding: 10px 5px;
     justify-content: center;
 }
 
@@ -101,7 +101,8 @@
 .collaborator-wrapper {
     flex-direction: column;
     height: auto;
-    padding: 10px;
+    padding: 10px 10px 10px 60px;
+    width: 100%;
 }
 
 .layout-grid {
@@ -124,4 +125,20 @@
     display: none;
 }
 
+.profile-picture{
+    width: 100%;
+}
+
+.collaborator-info {
+    padding: 0;
+}
+
+/* === PROJECTS === */
+
+.project-wrapper {
+    flex-direction: column-reverse;
+    height: auto;
+    padding: 10px 10px 10px 60px;
+    width: 100%;
+}
 }
