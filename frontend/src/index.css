@@ -597,3 +597,13 @@ textarea::placeholder {
   font-variation-settings: 'ital' 0, 'opsz' 6, 'wght' 200;
   font-size: 20px;
 }
+
+/* === PROJECTS === */
+
+.project-wrapper {
+  box-sizing: border-box;
+  height: var(--app-height);
+  margin-left: 20px;
+  padding: 0px 10px 0px 30px;
+  width: calc(100vW * 6 / 7 );
+}
