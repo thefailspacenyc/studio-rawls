@@ -81,7 +81,7 @@ import FeaturedProject from '../components/FeaturedProject';
                         </div>
                     </div>
                     {display.map((section, index) => 
-                        <div key={ index }>
+                        <div className="section-wrapper" key={ index }>
                             { section }
                         </div>
                     )}

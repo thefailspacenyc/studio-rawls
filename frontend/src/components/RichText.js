@@ -5,23 +5,21 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer';
         let text = props.data.Rich_Text
  
         return (
-            <div className="section-wrapper flex column jc-center" >
-                    <div className="width-50">
-                        <BlocksRenderer 
-                            content={ text } 
-                            blocks={{
-                                paragraph: ({ children }) => <p className="no-margin-top">{ children }</p>,
-                                heading: ({ children, level }) => {
-                                switch (level) {
-                                    case 1:
-                                        return <h1 style={{ margin: '0px' }}>{ children }</h1>
-                                    case 2:
-                                        return <h2 style={{ margin: '0px' }}>{ children }</h2>
-                                }
-                                },
-                            }}
-                        />
-                    </div>
+            <div className="flex column jc-center" >
+                <BlocksRenderer 
+                    content={ text } 
+                    blocks={{
+                        paragraph: ({ children }) => <p className="no-margin-top">{ children }</p>,
+                        heading: ({ children, level }) => {
+                            switch (level) {
+                                case 1:
+                                    return <h1 style={{ margin: '0px' }}>{ children }</h1>
+                                case 2:
+                                    return <h2 style={{ margin: '0px' }}>{ children }</h2>
+                            }
+                        },
+                    }}
+                />
             </div>
         );
     }
