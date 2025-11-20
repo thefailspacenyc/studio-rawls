@@ -17,24 +17,33 @@ html {
   --theme-pop: #FF23BD;
  }
 
-p {
-  font-family: "degular-variable",sans-serif;
-  font-variation-settings: 'ital' 0, 'opsz' 6, 'wght' 200;
+.color-seafoam {
+  color: var(--seafoam);
+}
+
+@font-face {
+  font-family: 'Alliance No.1 Light';
+  src: url('/public/fonts/Degarism\ Studio\ -\ Alliance\ No.1\ Light.otf') format('otf');
+  font-weight: normal;
+  font-style: normal;
 }
 
 h1 {
   font-family: "degular-variable",sans-serif;
-  font-weight: 600;
+  font-variation-settings: "ital" 0, "opsz" 6, "wght" 600;
   font-size: 3em;
 }
 
 h2 {
   font-family: "degular-variable",sans-serif;
-  font-variation-settings: "ital" 0, "opsz" 6, "wght" 600;
+  font-variation-settings: "ital" 0, "opsz" 6, "wght" 500;
+  font-size: 24px;
 }
 
 h3 {
-  font-family: "degular-variable",sans-serif;
+  font-family: 'Alliance No.1 Light',sans-serif;
+  font-size: 20px;
+  margin-top: 0px;
 }
 
 h6 {
@@ -42,13 +51,24 @@ h6 {
 }
 
 p {
-  font-size: 1.25em;
+  font-family: 'Alliance No.1 Light',sans-serif;
+  font-size: 1em;
   text-justify: inter-word;
   text-align: justify;
 }
 
 li {
   font-family: "degular-variable",sans-serif;
+}
+
+a {
+  color: var(--vampire);
+  transition-duration: 300ms;
+}
+
+a:hover {
+  color: var(--highlight);
+  transition-duration: 300ms;
 }
 
  /* === ANIMATIONS === */
@@ -130,6 +150,10 @@ li {
   align-items: flex-end;
 }
 
+.ai-flex-center {
+  align-items: center;
+}
+
 .ac-flex-end {
   align-content: flex-end;
 }
@@ -176,6 +200,10 @@ li {
 
 .no-margin-top {
   margin-top: 0px;
+}
+
+.margin-top-40 {
+  margin-top: 40px;
 }
 
 .bg-black {
@@ -314,6 +342,36 @@ li {
   transition-duration: 300ms;
 }
 
+.dropdown-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 300ms ease;
+  margin-left: 10px; /* ← offset 10px to the right */
+}
+
+/* When open, expand smoothly */
+.dropdown-wrapper.open {
+  max-height: 500px; /* large enough to show full content */
+}
+
+/* Fade + slide effect for content */
+.dropdown-list {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+/* When wrapper is open, animate content */
+.dropdown-wrapper.open .dropdown-list {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-item p {
+  margin: 6px 0;
+  cursor: pointer;
+}
+
 /* === LANDING === */
 
 .featured-project-info {
@@ -395,6 +453,11 @@ li {
 
 .padding-sm {
   padding: 10px;
+}
+
+.collaborator-name {
+  color: var(--seafoam);
+  margin-bottom: 0px;
 }
 
 /* === EVENTS === */

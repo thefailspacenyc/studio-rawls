@@ -11,19 +11,19 @@ import CollaboratorList from '../pages/CollaboratorList';
 import EventList from '../pages/EventList';
 import Contact from '../pages/Contact';
 import Research from '../pages/Research';
-
-// import useFetch from "../useFetch"
+import useFetch from '../useFetch';
 
     function Nav() {
+        const { isLoading, error, data } = useFetch(`${process.env.REACT_APP_BACKEND}/api/projects`)
+        const [open, setOpen] = useState(false);
 
-        // const { isLoading, error, data } = useFetch(`${process.env.REACT_APP_BACKEND}/api/menu`)
+        let projects = null;
 
-        // let menu = null;
+        if (data) {
 
-        // if (data) {
+            projects = data.data
+            console.log(data)
 
-            // menu = data.data.attributes
-           
             return (
                 <Router>
                         <div className="nav-wrapper flex column" > 
@@ -49,23 +49,42 @@ import Research from '../pages/Research';
                                     </defs>
                                 </svg>
                                 <div className="flex column row-gap-10">
-                                    <Link to={ "/events" }>
+                                    {/* <Link to={ "/events" }>
                                         <h6>Events</h6>
-                                    </Link>
-                                    <Link to="https://whistlespace.org" target='_blank'>
-                                        <h6>Whistelspace</h6>
-                                    </Link>
-                                    <Link to={ "/research" }>
+                                    </Link> */}
+                                    
+                                    {/* <Link to={ "/research" }>
                                         <h6>Research</h6>
-                                    </Link>
+                                    </Link> */}
+                                    <div className="productions-dropdown">
+                                        <h6
+                                            onClick={() => setOpen(!open)}
+                                            style={{ cursor: "pointer" }}
+                                        >
+                                            Productions
+                                        </h6>
+
+                                        <div className={`dropdown-wrapper ${open ? "open" : ""}`}>
+                                            <div className="dropdown-list">
+                                            {projects?.map((project, index) => (
+                                                <Link  to={ `/projects/${project.slug}` } key={index} className="dropdown-item">
+                                                    <p>{project.Project_Title}</p>
+                                                </Link>
+                                            ))}
+                                            </div>
+                                        </div>
+                                    </div>
                                     <Link to={ "/" }>
                                         <h6>Productions</h6>
                                     </Link>
                                     <Link to={ "/collaborators" }>
                                         <h6>Collaborators</h6>
                                     </Link>
-                                    <Link to={ "/contact" }>
+                                    {/* <Link to={ "/contact" }>
                                         <h6>Contact</h6>
+                                    </Link> */}
+                                    <Link to="https://whistlespace.org" target='_blank'>
+                                        <h6>Whistelspace</h6>
                                     </Link>
                                 </div>
                             </div>
@@ -108,6 +127,6 @@ import Research from '../pages/Research';
                 </Router>
             );
         }
-    // }
+    }
     
     export default Nav;

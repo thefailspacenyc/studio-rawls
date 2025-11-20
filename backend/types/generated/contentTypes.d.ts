@@ -529,10 +529,13 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
       'api::project.project'
     > &
       Schema.Attribute.Private;
+    Location: Schema.Attribute.String;
+    Premiere_Date: Schema.Attribute.String;
     project: Schema.Attribute.Relation<
       'manyToOne',
       'api::collaborator.collaborator'
     >;
+    Project_Description: Schema.Attribute.Blocks;
     Project_Media: Schema.Attribute.DynamicZone<
       [
         'media.video',
@@ -544,6 +547,7 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     >;
     Project_Title: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'Project_Title'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
