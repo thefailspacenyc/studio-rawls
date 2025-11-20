@@ -342,6 +342,36 @@ a:hover {
   transition-duration: 300ms;
 }
 
+.dropdown-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 300ms ease;
+  margin-left: 10px; /* ← offset 10px to the right */
+}
+
+/* When open, expand smoothly */
+.dropdown-wrapper.open {
+  max-height: 500px; /* large enough to show full content */
+}
+
+/* Fade + slide effect for content */
+.dropdown-list {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+/* When wrapper is open, animate content */
+.dropdown-wrapper.open .dropdown-list {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-item p {
+  margin: 6px 0;
+  cursor: pointer;
+}
+
 /* === LANDING === */
 
 .featured-project-info {

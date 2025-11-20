@@ -38,6 +38,10 @@
     },
     "Project_Description": {
       "type": "blocks"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Project_Title"
     }
   }
 }

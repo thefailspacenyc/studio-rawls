@@ -547,6 +547,7 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     >;
     Project_Title: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'Project_Title'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

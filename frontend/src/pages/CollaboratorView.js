@@ -52,7 +52,7 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer';
                                 <h2 className="color-seafoam">Current Projects</h2>
                                 {projects
                                     ? projects.map((project, index) => (
-                                    <div lassName="tag" key={ index }>
+                                    <div className="tag" key={ index }>
                                         <p>{ project.Project_Title }</p>
                                     </div>
                                     ))
