@@ -5,9 +5,7 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer';
         let image = props.data.Image
 
         return (
-            <div className="section-wrapper" >
-                <img className="section-image" src={`${process.env.REACT_APP_BACKEND}${ image.url }`} />
-            </div>
+            <img className="section-image" src={`${ image.url }`} />
         );
     }
     

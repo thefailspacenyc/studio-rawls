@@ -1,0 +1,127 @@
+@media only screen and (max-width: 900px) {
+
+/* === SPACING === */
+
+.width-50 {
+    width: 100%;
+}
+
+.width-40 {
+    width: 100%;
+}
+
+.width-60 {
+    width: 100%;
+}
+
+
+/* === NAVIGATION === */
+
+.nav-wrapper {
+    display: none;
+}
+
+.nav-wrapper-mobile {
+    animation: menuHeight 600ms ease-in-out 0ms 1 forwards;
+    background-color: var(--vampire);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 0px;
+    margin-left: 0px;
+    opacity: 0%;
+    overflow: hidden;
+    position: fixed;
+    transition-duration: 200ms;
+}
+
+.mobile-column {
+    box-sizing: border-box;
+    padding: 10px 5px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    position: relative;
+    width: 50px
+}
+
+.menu-icon {
+    position: absolute;
+    top: 20px;
+}
+.mobile-column-dropdown {
+    box-sizing: border-box;
+    padding: 10px 5px;
+    justify-content: center;
+}
+
+.menu-content {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 300ms ease, width 400ms ease, transform 300ms ease;
+    width: 0vW;
+}
+
+.menu-content.mobileOpen {
+    opacity: 1;
+    transform: translateX(0);
+    width: calc( 100vW - 50px) !important;
+    transition-duration: 300ms;
+}
+
+/* Hamburger icon */
+.hamburger {
+  width: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: var(--primary-util);
+}
+
+/* X icon */
+.close-icon {
+  font-size: 32px;
+  line-height: 0;
+  color: var(--primary-util);
+}
+
+/* === COLLABORATORS === */
+
+.collaborator-wrapper {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+}
+
+.layout-grid {
+    box-sizing: border-box;
+    justify-items: center;
+}
+
+.collaborator-column {
+  max-width: 300px;
+}
+
+.profile-picture-small {
+  border-radius: 150px;
+  height: 300px;
+  object-fit: cover;
+  width: 300px;
+}
+
+.empty {
+    display: none;
+}
+
+}

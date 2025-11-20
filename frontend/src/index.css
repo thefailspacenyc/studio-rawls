@@ -71,6 +71,18 @@ a:hover {
   transition-duration: 300ms;
 }
 
+.link {
+  color: var(--primary-util);
+  transition-duration: 300ms;
+
+}
+
+.link:hover {
+  color: var(--highlight);
+  text-decoration: underline;
+  transition-duration: 300ms;
+}
+
  /* === ANIMATIONS === */
 @keyframes menuHeight {
   from {
@@ -246,12 +258,27 @@ a:hover {
   width: calc(100vW / 7);
 }
 
+.nav-wrapper-mobile {
+  display: none;
+}
+
 .nav-wrapper p {
   color: var(--primary-util);
   margin: 0px 0px 5px 0px;
 }
 
+.nav-wrapper-mobile p {
+  color: var(--primary-util);
+  margin: 0px 0px 5px 0px;
+}
+
 .nav-wrapper h6 {
+  font-size: 20px;
+  margin: 0px;
+  text-decoration: none;
+}
+
+.nav-wrapper-mobile h6 {
   font-size: 20px;
   margin: 0px;
   text-decoration: none;
@@ -263,7 +290,18 @@ a:hover {
   transition-duration: 300ms;
 }
 
+.nav-wrapper-mobile a {
+  color: var(--secondary-util);
+  text-decoration: none;
+  transition-duration: 300ms;
+}
+
 .nav-wrapper a:hover {
+  color: var(--highlight);
+  transition-duration: 300ms;
+}
+
+.nav-wrapper-mobile a:hover {
   color: var(--highlight);
   transition-duration: 300ms;
 }
@@ -408,6 +446,7 @@ a:hover {
 }
 
 .collaborator-info {
+  box-sizing: border-box;
   justify-content: center;
   padding: 0px 10px 0px 10px;
 }
