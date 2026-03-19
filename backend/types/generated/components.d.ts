@@ -70,10 +70,11 @@ export interface MediaImageGallery extends Struct.ComponentSchema {
 export interface MediaPressQuote extends Struct.ComponentSchema {
   collectionName: 'components_media_press_quotes';
   info: {
+    description: '';
     displayName: 'Press Quote';
   };
   attributes: {
-    Press_Quote: Schema.Attribute.Text;
+    Press_Quote: Schema.Attribute.Blocks;
   };
 }
 

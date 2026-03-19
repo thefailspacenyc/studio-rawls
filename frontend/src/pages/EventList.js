@@ -13,7 +13,7 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 
     function EventList() {
         const { id } = useParams()
-        const { isLoading, error, data } = useFetch(`${process.env.REACT_APP_BACKEND}/api/events?pLevel`)
+        const { isLoading, error, data } = useFetch(`${process.env.REACT_APP_BACKEND}/api/events?populate=deep`)
 
         let events = null
         let singleEvent = null;
