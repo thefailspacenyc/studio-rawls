@@ -1,12 +1,13 @@
 {
   "collectionName": "components_media_press_quotes",
   "info": {
-    "displayName": "Press Quote"
+    "displayName": "Press Quote",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "Press_Quote": {
-      "type": "text"
+      "type": "blocks"
     }
   }
 }
