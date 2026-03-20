@@ -9,6 +9,9 @@ import { BrowserRouter as Router,
 import useFetch from "../useFetch";
 import RichText from '../components/RichText';
 import Image from '../components/Image';
+import Video from '../components/Video';
+import MosaicGallery from '../components/Gallery';
+import PressQuote from '../components/PressQuote';
 import FeaturedProject from '../components/FeaturedProject';
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 
@@ -36,6 +39,18 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer';
                     display.push(<Image data={media[i]} />)
                 }
 
+                if (media[i].__component === "media.video") {
+                    display.push(<Video data={media[i]} />)
+                }
+                
+                if (media[i].__component === "media.press-quote") {
+                    display.push(<PressQuote data={media[i]} />)
+                }
+
+                if (media[i].__component === "media.image-gallery") {
+                    display.push(<MosaicGallery data={media[i]} />)
+                }
+
                 if (media[i].__component === "media.featured-project") {
                     display.push(<FeaturedProject data={media[i]} />)
                 }
@@ -43,16 +58,16 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 
             return (
                 <div className="page-wrapper flex column ai-flex-end">
-                    <div className="project-wrapper flex jc-flex-end">
-                        <div className='flex column width-50 row-gap-50'>
+                    <div className="project-wrapper flex jc-space-btwn">
+                        <div className='flex column width-50 row-gap-50 media-container'>
                         {display.map((section, index) => 
                             <div key={ index }>
                                 { section }
                             </div>
                         )}
                         </div>
-                        <div className="collaborator-info width-50 flex column">
-                            <h1 className="collaborator-name">{ project.Project_Title }</h1>
+                        <div className="collaborator-info width-50 flex column info-container">
+                            <h1 className="">{ project.Project_Title }</h1>
                             <h3  >{ project.Premiere_Date }</h3>
                            
                                 {project.Project_Description
