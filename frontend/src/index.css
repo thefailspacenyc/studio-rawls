@@ -602,8 +602,24 @@ textarea::placeholder {
 
 .project-wrapper {
   box-sizing: border-box;
+  
   height: var(--app-height);
   margin-left: 20px;
   padding: 0px 10px 0px 30px;
   width: calc(100vW * 6 / 7 );
 }
+
+/* === PROJECT VIEW === */
+
+.info-container {
+  background-color: var(--seafoam);
+  color: var(--primary-util) !important;
+  position: sticky;
+  top: 0;
+}
+
+.media-container {
+  overflow-y: auto;
+  padding: 10px 10px 10px 0px;
+}
+
