@@ -20,9 +20,15 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer';
                     <div className="collaborator-wrapper jc-flex-end flex ai-flex-center relative ">
                         <div className="width-50 flex column featured-project-info">
                             <h1>{ project.Project_Title }</h1>
-                            <BlocksRenderer content={ project.Project_Description } />
+                            {project.Project_Description
+                                ? <BlocksRenderer content={ project.Project_Description } />
+                                : null
+                            }
                         </div>
-                        <img className="profile-picture" src={`${process.env.REACT_APP_BACKEND}${ project.Project_Image.url }`} />
+                        {project.Project_Image?.url
+                            ? <img className="profile-picture" src={`${process.env.REACT_APP_BACKEND}${ project.Project_Image.url }`} alt="" />
+                            : null
+                        }
 
                     </div>
                 </div>

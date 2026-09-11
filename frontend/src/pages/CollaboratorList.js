@@ -21,11 +21,11 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 
         
 
-        if (data) {
+        if (data?.data) {
 
             console.log(data)
             copy = data.data
-            collaborators = copy.collaborators
+            collaborators = copy.collaborators ?? []
 
             const COLUMNS = 3;
 
@@ -36,7 +36,10 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer';
                 <div className="page-wrapper flex column ai-flex-end">
                     <div className="collaborator-wrapper flex jc-flex-end">
                         <div className="collaborator-info width-40 bg-black flex column">
-                            <BlocksRenderer content={ copy.Page_Copy } />
+                            {copy.Page_Copy
+                                ? <BlocksRenderer content={ copy.Page_Copy } />
+                                : null
+                            }
                             {/* <h1>Skills</h1>
                             <TagFilter /> */}
                         </div>
@@ -44,11 +47,14 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer';
                              {collaborators.map((collaborator, index) => (
                                 <div className="collaborator-column" key={index}>
                                     <a href={`/collaborators/${collaborator.slug}`}>
-                                    <img
-                                        className="profile-picture-small"
-                                        src={collaborator.Profile_Picture.url}
-                                        alt={collaborator.Name}
-                                    />
+                                    {collaborator.Profile_Picture?.url
+                                        ? <img
+                                            className="profile-picture-small"
+                                            src={`${process.env.REACT_APP_BACKEND}${collaborator.Profile_Picture.url}`}
+                                            alt={collaborator.Name}
+                                        />
+                                        : null
+                                    }
                                     </a>
 
                                     <div className="padding-sm">

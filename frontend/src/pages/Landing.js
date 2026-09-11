@@ -26,7 +26,7 @@ import FeaturedProject from '../components/FeaturedProject';
 
             console.log(data)
             
-            for (let i = 0; i < sections.length; i ++) {
+            for (let i = 0; sections && i < sections.length; i ++) {
                 if (sections[i].__component === "media.values") {
                     display.push(<RichText data={sections[i]} />)
                 }
@@ -64,20 +64,23 @@ import FeaturedProject from '../components/FeaturedProject';
                             </defs>
                         </svg>
                         <div className="absolute width-50">
-                            <BlocksRenderer 
-                                content={ mission } 
-                                blocks={{
-                                    paragraph: ({ children }) => <p className="no-margin-top">{ children }</p>,
-                                    heading: ({ children, level }) => {
-                                    switch (level) {
-                                        case 1:
-                                            return <h1 style={{ margin: '0px' }}>{ children }</h1>
-                                        case 2:
-                                            return <h2 style={{ margin: '0px' }}>{ children }</h2>
-                                    }
-                                    },
-                                }}
-                            />
+                            {mission
+                                ? <BlocksRenderer 
+                                    content={ mission } 
+                                    blocks={{
+                                        paragraph: ({ children }) => <p className="no-margin-top">{ children }</p>,
+                                        heading: ({ children, level }) => {
+                                        switch (level) {
+                                            case 1:
+                                                return <h1 style={{ margin: '0px' }}>{ children }</h1>
+                                            case 2:
+                                                return <h2 style={{ margin: '0px' }}>{ children }</h2>
+                                        }
+                                        },
+                                    }}
+                                />
+                                : null
+                            }
                         </div>
                     </div>
                     {display.map((section, index) => 
