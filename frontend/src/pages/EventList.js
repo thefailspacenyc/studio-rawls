@@ -13,7 +13,7 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 
     function EventList() {
         const { id } = useParams()
-        const { isLoading, error, data } = useFetch(`${process.env.REACT_APP_BACKEND}/api/events?populate=deep`)
+        const { isLoading, error, data } = useFetch(`${process.env.REACT_APP_BACKEND}/api/events?pLevel`)
 
         let events = null
         let singleEvent = null;
@@ -25,10 +25,10 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer';
           console.log(event)
         };
 
-        if (data) {
+        if (data?.data) {
 
             events = data.data
-            singleEvent = data.data[selectedEvent]
+            singleEvent = events[selectedEvent]
             console.log(events)
 
             return (
@@ -44,7 +44,10 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer';
                                 onClick={() => handleSelectEvent(index)}
                                 style={{ cursor: "pointer" }}>
                                 <div  className={`${index === selectedEvent ? "selected-event" : ""}`}>
-                                    <img className="profile-picture-small" src={`${process.env.REACT_APP_BACKEND}${ event.Event_Thumbnail[0].url }`} />
+                                    {event.Event_Thumbnail?.[0]?.url
+                                        ? <img className="profile-picture-small" src={`${process.env.REACT_APP_BACKEND}${ event.Event_Thumbnail[0].url }`} alt={ event.Event_Title || "" } />
+                                        : null
+                                    }
                                 </div>
                                 <div className="padding-sm">
                                     <h2>{ event.Event_Title }</h2>
@@ -54,14 +57,23 @@ import { BlocksRenderer } from '@strapi/blocks-react-renderer';
                         )}
                         </div>
                     </div>
-                    <div className="event-info-wrapper flex">
-                        <div className="event-description width-50">
-                            <BlocksRenderer content={ singleEvent.Event_Description } />
+                    {singleEvent
+                        ? <div className="event-info-wrapper flex">
+                            <div className="event-description width-50">
+                                {singleEvent.Event_Description
+                                    ? <BlocksRenderer content={ singleEvent.Event_Description } />
+                                    : null
+                                }
+                            </div>
+                            <div className="event-details width-50">
+                                {singleEvent.Event_Details
+                                    ? <BlocksRenderer content={ singleEvent.Event_Details } />
+                                    : null
+                                }
+                            </div>
                         </div>
-                        <div className="event-details width-50">
-                            <BlocksRenderer content={ singleEvent.Event_Details } />
-                        </div>
-                    </div>
+                        : null
+                    }
                 </div>
             );
         }
